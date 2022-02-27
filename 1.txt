@@ -49,3 +49,5 @@ Scenario4: PR squash from feature to staging, manually rebase production on stag
 
 feat1sc4: feat1sc4 --PR#17--> staging --rebase--> production
  - result: using git checkout production, git rebase staging and git push (after squashing feature to staging via PR) caused no difference between the two branches because of fast-forward
+
+bonus: cherry-pick
