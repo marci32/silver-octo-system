@@ -1,5 +1,9 @@
-something
+something3
 feat1: feat1 --PR#1--> staging --PR#2--> production
  - result: staging is behind production with one merge commit (PR #2)
 
 feat2: feat2 --PR#3--> staging --PR#4--> production
+ - result: staging is behind production with two merge commits (PR #2 and PR #4)
+
+feat3: feat3 --PR#5--> staging
+feat4: feat3 --PR#6--> staging --PR#7--> production
