@@ -44,3 +44,7 @@ feat1sc3: feat1sc3 --PR#15--> staging --merge--> production
 
 feat2sc3: feat2sc3 --PR#16--> staging --merge--> production
  - result: the same as above, because we started from a synced state
+
+Scenario4: PR squash from feature to staging, manually rebase production on staging
+
+feat1sc4: feat1sc4 --PR#17--> staging --rebase--> production
