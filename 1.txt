@@ -1,4 +1,4 @@
-one
+three
 
 Scenario1: merge
 
