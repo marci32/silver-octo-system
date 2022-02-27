@@ -18,3 +18,8 @@ feat4: feat4 --PR#6--> staging --PR#7--> production
 Scenario2: squash from feature to staging, rebase from staging to production
 
 feat1sc2: feat1sc2 --PR#8--> staging --PR#9--> production
+ - result:
+   - staging is behind production with one merge commit (PR #8),
+   - production is ahead of staging with one merge commit (PR #8)
+
+feat2sc2: feat2sc2 --PR#10--> staging --PR#11--> production
