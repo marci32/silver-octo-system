@@ -1,4 +1,4 @@
-something
+one
 
 Scenario1: merge
 
@@ -19,7 +19,13 @@ Scenario2: squash from feature to staging, rebase from staging to production
 
 feat1sc2: feat1sc2 --PR#8--> staging --PR#9--> production
  - result:
-   - staging is behind production with one merge commit (PR #8),
-   - production is ahead of staging with one merge commit (PR #8)
+   - staging is behind production with one commit (PR #8),
+   - production is ahead of staging with one commit (PR #8)
 
 feat2sc2: feat2sc2 --PR#10--> staging --PR#11--> production
+ - result:
+   - conflict during PR #11 because of the result of feat1sc2, so I merged prod into staging and resolved the conflict
+   - production is ahead of staging with three commits (PR #8, PR #10, merge prod into staging during PR #11)
+
+feat3sc2: feat3sc2 --PR#12--> staging
+feat4sc2: feat4sc2 --PR#13--> staging --PR#14--> production
