@@ -1,31 +1,42 @@
-three
 
-Scenario1: merge
+Scenario1: PR merge
 
 feat1: feat1 --PR#1--> staging --PR#2--> production
- - result: staging is behind production with one merge commit (PR #2)
+ - result: staging behind production with one merge commit (PR #2)
 
 feat2: feat2 --PR#3--> staging --PR#4--> production
- - result: staging is behind production with two merge commits (PR #2 and PR #4)
+ - result: staging behind production with two merge commits (PR #2 and PR #4)
 
 feat3: feat3 --PR#5--> staging
 feat4: feat4 --PR#6--> staging --PR#7--> production
- - result: staging is behind production with three merge commits (PR #2, PR #4 and PR #7)
+ - result: staging behind production with three merge commits (PR #2, PR #4 and PR #7)
    (PR #7 contains feat3 and feat4)
 
 (merge prod to stg - fast-forward -, no diff between staging and production at all)
 
-Scenario2: squash from feature to staging, rebase from staging to production
+Scenario2: PR squash from feature to staging, PR rebase from staging to production
 
 feat1sc2: feat1sc2 --PR#8--> staging --PR#9--> production
  - result:
-   - staging is behind production with one commit (PR #8),
-   - production is ahead of staging with one commit (PR #8)
+   - staging behind production with one commit (PR #8),
+   - staging ahead production with one commit (PR #8)
 
 feat2sc2: feat2sc2 --PR#10--> staging --PR#11--> production
  - result:
-   - conflict during PR #11 because of the result of feat1sc2, so I merged prod into staging and resolved the conflict
-   - production is ahead of staging with three commits (PR #8, PR #10, merge prod into staging during PR #11)
+   - conflict during PR #11 because of the result of feat1sc2, so I merged prod into staging and resolved the "conflict"
+   - staging ahead production with three commits (PR #8, PR #10, merge prod into staging during PR #11)
 
 feat3sc2: feat3sc2 --PR#12--> staging
 feat4sc2: feat4sc2 --PR#13--> staging --PR#14--> production
+ - result:
+   - conflict during PR #14...
+     - github did not allow to rebase (but squash) after merging prod into staging and resolving the "conflict"
+     - I tried to rebase production, github did not allow to rebase until refreshing the browser...
+   - staging behind production with one commit (PR #12 and PR #13),
+   - staging ahead production with one commit (PR #12 and PR #13)
+
+(merge prod to stg - fast-forward -, and also merge stg to prod - fast-forward -, no diff between staging and production at all)
+
+Scenario3: PR squash from feature to staging, manually merge staging on production
+
+feat1sc3: feat1sc3 --PR#15--> staging --merge--> production
