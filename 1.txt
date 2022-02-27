@@ -1,4 +1,7 @@
-something3
+something
+
+Scenario1: merge
+
 feat1: feat1 --PR#1--> staging --PR#2--> production
  - result: staging is behind production with one merge commit (PR #2)
 
@@ -6,4 +9,12 @@ feat2: feat2 --PR#3--> staging --PR#4--> production
  - result: staging is behind production with two merge commits (PR #2 and PR #4)
 
 feat3: feat3 --PR#5--> staging
-feat4: feat3 --PR#6--> staging --PR#7--> production
+feat4: feat4 --PR#6--> staging --PR#7--> production
+ - result: staging is behind production with three merge commits (PR #2, PR #4 and PR #7)
+   (PR #7 contains feat3 and feat4)
+
+(merge prod to stg - fast-forward -, no diff between staging and production at all)
+
+Scenario2: squash from feature to staging, rebase from staging to production
+
+feat1sc2: feat1sc2 --PR#8--> staging --PR#9--> production
