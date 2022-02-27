@@ -40,3 +40,7 @@ feat4sc2: feat4sc2 --PR#13--> staging --PR#14--> production
 Scenario3: PR squash from feature to staging, manually merge staging on production
 
 feat1sc3: feat1sc3 --PR#15--> staging --merge--> production
+ - result: using git checkout production, git merge staging and git push (after squashing feature to staging via PR) caused no difference between the two branches because of fast-forward
+
+feat2sc3: feat2sc3 --PR#16--> staging --merge--> production
+ - result: the same as above, because we started from a synced state
